@@ -56,7 +56,17 @@
             return Id;
         }
 
-        public static string IdGenerator(string name, List<string> _service)
+
+        /// <summary>
+        /// Method to autogenerate  autoincrement alphanumeric codes, taking characters of specific length from the string supplied, and autoincrement the alphabeths from
+        /// A to Z and the number from 1 to 9999
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="_service"></param>
+        /// <param name="charLength"></param>
+        /// <returns></returns>
+
+        public static string IdGenerator(string name, List<string> _service, int charLength)
         {
             int num = int.Parse(_service[_service.Count - 1].Substring(4,4));
             var firstChar = _service[_service.Count-1][2];
@@ -73,11 +83,10 @@
                     if(firstChar > 'Z')
                     {
                         firstChar = (char)((int)firstChar - 26);
-                        //secondChar = (char)((int)secondChar - 26);
                     }
                 }
             }
-            return name.Substring(0,2).ToUpper() + firstChar + secondChar + ((int)num +1).ToString("D4");
+            return name.Substring(0, charLength).ToUpper() + firstChar + secondChar + ((int)num +1).ToString("D4");
         }
     }
     
