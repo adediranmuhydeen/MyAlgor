@@ -32,6 +32,6 @@ int unicodeValue = (int)'y'; // Convert to Unicode value
 unicodeValue++; // Increment the value
 Console.WriteLine((char)unicodeValue);
 
-var _service = new List<string> { "EXAA0001", "EXAA9999", "EXAZ9999", "EXZY9999" };
+var _service = new List<string> { "EXAA0001", "EXAA9999", "EXAZ9999", "EXCZ9999" };
 
-Console.WriteLine(LeetCode.IdGenerator("examroom", _service));
+Console.WriteLine(LeetCode.IdGenerator("University", _service, 3));
