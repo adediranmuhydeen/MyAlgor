@@ -26,3 +26,12 @@ using System.Text.Json;
 
 //Console.WriteLine(DateOnly.FromDateTime(DateTime.UtcNow).ToString("d"));
 Console.WriteLine(LeetCode.GenerateId("ExamRoom", DateTime.UtcNow));
+
+
+int unicodeValue = (int)'y'; // Convert to Unicode value
+unicodeValue++; // Increment the value
+Console.WriteLine((char)unicodeValue);
+
+var _service = new List<string> { "EXAA0001", "EXAA9999", "EXAZ9999", "EXZY9999" };
+
+Console.WriteLine(LeetCode.IdGenerator("examroom", _service));
