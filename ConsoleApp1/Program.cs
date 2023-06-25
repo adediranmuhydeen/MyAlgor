@@ -25,13 +25,21 @@ using System.Text.Json;
 //Console.WriteLine(algo.CreateId("Muhydeen"));
 
 //Console.WriteLine(DateOnly.FromDateTime(DateTime.UtcNow).ToString("d"));
+
+//int unicodeValue = (int)'y'; // Convert to Unicode value
+//unicodeValue++; // Increment the value
+//Console.WriteLine((char)unicodeValue);
+
+Console.WriteLine((char)(' ' + 1));
+
+
 Console.WriteLine(LeetCode.GenerateId("ExamRoom", DateTime.UtcNow));
 
 
-int unicodeValue = (int)'y'; // Convert to Unicode value
-unicodeValue++; // Increment the value
-Console.WriteLine((char)unicodeValue);
+var _service = new List<string> { "EXAA0001", "EXAA9999", "EXAZ9999", "EXCZ9999", "UNIVERSDA0001" };
 
-var _service = new List<string> { "EXAA0001", "EXAA9999", "EXAZ9999", "EXCZ9999" };
+Console.WriteLine(LeetCode.IdGenerator("University", _service, 7));
 
-Console.WriteLine(LeetCode.IdGenerator("University", _service, 3));
+var service = new List<string> { "EXAA0001A", "EXAA9999A", "EXAZ9999A", "EXZZ9999A", "TSEYZ9999B", "EXAMROOMZZ9999B" };
+
+Console.WriteLine(LeetCode.GenerateCode("TestSite", service, 8));
