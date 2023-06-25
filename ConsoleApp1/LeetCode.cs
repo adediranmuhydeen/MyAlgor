@@ -68,25 +68,61 @@
 
         public static string IdGenerator(string name, List<string> _service, int charLength)
         {
-            int num = int.Parse(_service[_service.Count - 1].Substring(4,4));
-            var firstChar = _service[_service.Count-1][2];
-            char secondChar = _service[_service.Count - 1][3];
+            int startIndex = 4;
+            if (charLength > 2)
+            {
+                startIndex = startIndex + (charLength - 2);
+            }
+            int num = int.Parse(_service[_service.Count - 1].Substring(startIndex, 4));
+            var firstChar = _service[_service.Count-1][2 + (charLength - 2)];
+            char secondChar = _service[_service.Count - 1][3 + (charLength - 2)];
             if (num + 1 > 9999)
             {
-                secondChar = (char)((int)secondChar + 1);
+                secondChar = (char)(secondChar + 1);
                 num = 0;
                 if(secondChar > 'Z')
                 {
-                    firstChar = (char)((int)firstChar + 1);
-                    secondChar = (char)((int)secondChar -26);
+                    firstChar = (char)(firstChar + 1);
+                    secondChar = (char)(secondChar -26);
 
                     if(firstChar > 'Z')
                     {
-                        firstChar = (char)((int)firstChar - 26);
+                        firstChar = (char)(firstChar - 26);
                     }
                 }
             }
-            return name.Substring(0, charLength).ToUpper() + firstChar + secondChar + ((int)num +1).ToString("D4");
+            return name.Substring(0, charLength).ToUpper() + firstChar + secondChar + (num +1).ToString("D4");
+        }
+
+        public static string GenerateCode(string name, List<string> _service, int charLength, int firstIndex=2, int secondIndex=3)
+        {
+            int startIndex = 4;
+            if (charLength > 2)
+            {
+                startIndex = startIndex + (charLength - 2);
+            }
+            int num = int.Parse(_service[_service.Count - 1].Substring(startIndex, 4));
+            string myString = _service[_service.Count - 1];
+            char firstChar = myString[firstIndex + (charLength - 2)];
+            char secondChar = myString[secondIndex + (charLength - 2)];
+            char thirdChar = myString[myString.Length - 1];
+            if (num + 1 > 9999)
+            {
+                secondChar = (char)(secondChar + 1);
+                num = 0;
+                if (secondChar > 'Z')
+                {
+                    firstChar = (char)(firstChar + 1);
+                    secondChar = (char)(secondChar - 26);
+
+                    if (firstChar > 'Z')
+                    {
+                        firstChar = (char)(firstChar - 26);
+                        thirdChar = (char)(thirdChar + 1);
+                    }
+                }
+            }
+            return (name.Substring(0, charLength).ToUpper() + firstChar + secondChar + (num + 1).ToString("D4") + thirdChar).Trim();
         }
     }
     
