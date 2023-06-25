@@ -64,9 +64,11 @@
         /// <param name="name"></param>
         /// <param name="_service"></param>
         /// <param name="charLength"></param>
+        /// <param name="firstIndex"></param>
+        /// <param name="secondIndex"></param>
         /// <returns></returns>
 
-        public static string IdGenerator(string name, List<string> _service, int charLength)
+        public static string IdGenerator(string name, List<string> _service, int charLength, int firstIndex = 2, int secondIndex = 3)
         {
             int startIndex = 4;
             if (charLength > 2)
@@ -74,8 +76,9 @@
                 startIndex = startIndex + (charLength - 2);
             }
             int num = int.Parse(_service[_service.Count - 1].Substring(startIndex, 4));
-            var firstChar = _service[_service.Count-1][2 + (charLength - 2)];
-            char secondChar = _service[_service.Count - 1][3 + (charLength - 2)];
+            string myString = _service[_service.Count - 1];
+            char firstChar = myString[firstIndex + (charLength - 2)];
+            char secondChar = myString[secondIndex + (charLength - 2)];
             if (num + 1 > 9999)
             {
                 secondChar = (char)(secondChar + 1);
@@ -93,6 +96,17 @@
             }
             return name.Substring(0, charLength).ToUpper() + firstChar + secondChar + (num +1).ToString("D4");
         }
+
+        /// <summary>
+        /// Method to autogenerate  autoincrement alphanumeric codes, taking characters of specific length from the string supplied, and autoincrement the alphabeths from
+        /// A to Z and the number from 1 to 9999 and Paded with another digit at the back
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="_service"></param>
+        /// <param name="charLength"></param>
+        /// <param name="firstIndex"></param>
+        /// <param name="secondIndex"></param>
+        /// <returns></returns>
 
         public static string GenerateCode(string name, List<string> _service, int charLength, int firstIndex=2, int secondIndex=3)
         {
@@ -122,7 +136,7 @@
                     }
                 }
             }
-            return (name.Substring(0, charLength).ToUpper() + firstChar + secondChar + (num + 1).ToString("D4") + thirdChar).Trim();
+            return (name.Substring(0, charLength).ToUpper() + firstChar + secondChar + (num + 1).ToString("D4") + thirdChar);
         }
     }
     
