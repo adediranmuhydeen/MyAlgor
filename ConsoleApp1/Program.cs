@@ -46,6 +46,8 @@ using System.Text.Json;
 
 var x = new int[] {2, 1, 1};
 var y = new int[] {1, 1, 1, 1, 1,2};
-
+var a = "Mhydeen";
 Console.WriteLine(CodeWars.Stray(x));
 Console.WriteLine(CodeWars.Stray(y));
+Console.WriteLine(CodeWars.workOnStrings("abab", "bababa"));
+//Console.WriteLine(a.Remove(0,'y'));

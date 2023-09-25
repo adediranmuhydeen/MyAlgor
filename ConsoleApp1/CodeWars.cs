@@ -1,4 +1,6 @@
-﻿namespace ConsoleApp1
+﻿using System.Text;
+
+namespace ConsoleApp1
 {
     public class CodeWars
     {
@@ -19,9 +21,24 @@
         /// <param name="a"></param>
         /// <param name="b"></param>
         /// <returns></returns>
-        public string workOnStrings(string a, string b)
+        public static string workOnStrings(string a, string b)
         {
-            return a + b;
+            StringBuilder sb = new StringBuilder();
+            var res = a + b;
+            for(int i=0; i<res.Length; i++)
+            {
+                if (a.Contains(res[i]) && b.Contains(res[i]))
+                {
+                    sb.Append(Char.ToUpper(res[i]));
+                    b = b.Remove(i);
+                }               
+                else
+                {
+                    sb.Append(res[i]);
+                    //res = res.Remove(res[i]);
+                }
+            }
+            return sb.ToString();
         }
     }
 }
