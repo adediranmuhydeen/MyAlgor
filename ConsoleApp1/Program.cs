@@ -30,16 +30,22 @@ using System.Text.Json;
 //unicodeValue++; // Increment the value
 //Console.WriteLine((char)unicodeValue);
 
-Console.WriteLine((char)(' ' + 1));
+//Console.WriteLine((char)(' ' + 1));
 
 
-Console.WriteLine(LeetCode.GenerateId("ExamRoom", DateTime.UtcNow));
+//Console.WriteLine(LeetCode.GenerateId("ExamRoom", DateTime.UtcNow));
 
 
-var _service = new List<string> { "EXAA0001", "EXAA9999", "EXAZ9999", "EXCZ9999", "UNIVERSDA0001" };
+//var _service = new List<string> { "EXAA0001", "EXAA9999", "EXAZ9999", "EXCZ9999", "UNIVERSDA0001" };
 
-Console.WriteLine(LeetCode.IdGenerator("University", _service, 7));
+//Console.WriteLine(LeetCode.IdGenerator("University", _service, 7));
 
-var service = new List<string> { "EXAA0001A", "EXAA9999A", "EXAZ9999A", "EXZZ9999A", "TSEYZ9999B", "EXAMROOMZZ9999B" };
+//var service = new List<string> { "EXAA0001A", "EXAA9999A", "EXAZ9999A", "EXZZ9999A", "TSEYZ9999B", "EXAMROOMZZ9999B" };
 
-Console.WriteLine(LeetCode.GenerateCode("TestSite", service, 8));
+//Console.WriteLine(LeetCode.GenerateCode("TestSite", service, 8));
+
+var x = new int[] {2, 1, 1};
+var y = new int[] {1, 1, 1, 1, 1,2};
+
+Console.WriteLine(CodeWars.Stray(x));
+Console.WriteLine(CodeWars.Stray(y));
