@@ -23,22 +23,10 @@ namespace ConsoleApp1
         /// <returns></returns>
         public static string workOnStrings(string a, string b)
         {
-            StringBuilder sb = new StringBuilder();
-            var res = a + b;
-            for(int i=0; i<res.Length; i++)
-            {
-                if (a.Contains(res[i]) && b.Contains(res[i]))
-                {
-                    sb.Append(Char.ToUpper(res[i]));
-                    b = b.Remove(i);
-                }               
-                else
-                {
-                    sb.Append(res[i]);
-                    //res = res.Remove(res[i]);
-                }
-            }
-            return sb.ToString();
+           
+            var res = string.Empty;
+           
+          return res;
         }
     }
 }

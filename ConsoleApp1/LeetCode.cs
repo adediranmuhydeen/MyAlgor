@@ -138,6 +138,16 @@
             }
             return (name.Substring(0, charLength).ToUpper() + firstChar + secondChar + (num + 1).ToString("D4") + thirdChar);
         }
+
+        public static string GenerateCodeID(string name, List<string> _service, int integerLenth,  int charLength = 4, int startIndex = 4)
+        {
+            var myString = _service.Count < 1 ? name.Substring(0, charLength) + (0).ToString($"D{integerLenth}") != _service[_service.Count - 1].Substring(0, charLength) ?
+                name.Substring(0, charLength) + (0).ToString($"D{integerLenth}") : name.Substring(0, charLength) + (0).ToString($"D{integerLenth}") : _service[_service.Count - 1];
+
+            int num = int.Parse(myString.Substring(charLength));
+
+            return (myString.Substring(0, charLength).ToUpper() + (num + 1).ToString($"D{integerLenth}"));
+        }
     }
     
 }
