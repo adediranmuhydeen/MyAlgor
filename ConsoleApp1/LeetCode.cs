@@ -141,12 +141,33 @@
 
         public static string GenerateCodeID(string name, List<string> _service, int integerLenth,  int charLength = 4, int startIndex = 4)
         {
-            var myString = _service.Count < 1 ? name.Substring(0, charLength) + (0).ToString($"D{integerLenth}") != _service[_service.Count - 1].Substring(0, charLength) ?
-                name.Substring(0, charLength) + (0).ToString($"D{integerLenth}") : name.Substring(0, charLength) + (0).ToString($"D{integerLenth}") : _service[_service.Count - 1];
+            var myString = _service.Count < 1 ? name.Substring(0, charLength) + (0).ToString($"D{integerLenth}") : _service[_service.Count - 1].Substring(0,charLength) != name.Substring(0, charLength)?name.Substring(0,charLength) + (0).ToString($"D{integerLenth}") : _service[_service.Count - 1];
+           
 
             int num = int.Parse(myString.Substring(charLength));
 
             return (myString.Substring(0, charLength).ToUpper() + (num + 1).ToString($"D{integerLenth}"));
+        }
+
+        public static int[] TwoSum(int[] nums, int target)
+        {
+            var res = new int[2];
+            var e = nums.Length - 1;
+            var i = 0;
+            while(i<nums.Length && e>=0)
+            {
+                if (nums[i] + nums[e] == target)
+                {
+                    res[0] = i;
+                    res[1] = e;
+                }
+                else
+                {
+                    i++;
+                    e--;
+                }
+            }
+            return res;
         }
     }
     
