@@ -1,4 +1,7 @@
-﻿namespace ConsoleApp1
+﻿using System.Diagnostics;
+using System.Runtime.Intrinsics.X86;
+
+namespace ConsoleApp1
 {
     public class LeetCode
     {
@@ -149,22 +152,33 @@
             return (myString.Substring(0, charLength).ToUpper() + (num + 1).ToString($"D{integerLenth}"));
         }
 
+
+        /// <summary>
+        /// Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+        /// You may assume that each input would have exactly one solution, and you may not use the same element twice.
+        /// You can return the answer in any order.
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
         public static int[] TwoSum(int[] nums, int target)
         {
-            var res = new int[2];
-            var e = nums.Length - 1;
-            var i = 0;
-            while(i<nums.Length && e>=0)
+            var res = new int[2];            
+           for(int i = 0; i<nums.Length; i++)
             {
-                if (nums[i] + nums[e] == target)
+                var e = nums.Length - 1;
+                while (i < nums.Length && e >= 0)
                 {
-                    res[0] = i;
-                    res[1] = e;
-                }
-                else
-                {
-                    i++;
-                    e--;
+                    if (nums[i] + nums[e] == target && i !=e)
+                    {
+                        res[0] = i;
+                        res[1] = e;
+                        break;
+                    }
+                    else
+                    {
+                        e--;
+                    }
                 }
             }
             return res;
