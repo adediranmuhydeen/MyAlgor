@@ -15,3 +15,7 @@ foreach (int i in result)
 {
     Console.WriteLine(i);
 }
+
+Console.WriteLine("---------Length of longest substring---------");
+
+Console.WriteLine(LeetCode.LengthOfLongestSubstring("aab"));
