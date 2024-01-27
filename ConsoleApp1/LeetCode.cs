@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.Data.SqlTypes;
+using System.Diagnostics;
 using System.Runtime.Intrinsics.X86;
 
 namespace ConsoleApp1
@@ -183,6 +184,34 @@ namespace ConsoleApp1
             }
             return res;
         }
+
+        /// <summary>
+        /// Given a string s, find the length of the longest substring without repeating characters.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static int LengthOfLongestSubstring(string s)
+        {
+            var result = 0;
+            var output = 1;
+            if (s.ToCharArray().Distinct().ToList().Count == s.Length)
+            {
+                return s.Length;
+            }
+            for (int i = 0; i < s.Length; i++)
+            {
+                var e = 1;
+                while (e+i <= s.Length)
+                {
+                    if (s.Substring(i, e).ToCharArray().Distinct().ToList().Count == s.Substring(i, e).Length)
+                    {
+                        result = s.Substring(i, e).Length > result ? s.Substring(i, e).Length : result;
+                        output = output>result ? output : result;
+                    }
+                    e++;
+                }
+            }
+            return output;
+        }
     }
-    
 }

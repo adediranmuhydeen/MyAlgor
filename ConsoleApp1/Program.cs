@@ -15,3 +15,15 @@ foreach (int i in result)
 {
     Console.WriteLine(i);
 }
+
+Console.WriteLine("---------Length of longest substring---------");
+
+Console.WriteLine(LeetCode.LengthOfLongestSubstring("aabbbbbuuuuuutrtfgdggd"));
+
+List<List<int>> list = [[11, 2, 4,], [4, 5, 6], [10, 8, -12]];
+
+Console.WriteLine(HackerRank.DiagonalDifference(list));
+
+List<int> myList = [1, 1, 0, -1, -1];
+
+HackerRank.PlusMinus(myList);
