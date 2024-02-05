@@ -24,6 +24,13 @@ List<List<int>> list = [[11, 2, 4,], [4, 5, 6], [10, 8, -12]];
 
 Console.WriteLine(HackerRank.DiagonalDifference(list));
 
-List<int> myList = [1, 1, 0, -1, -1];
+List<int> myList = [1, 0, -1];
 
 HackerRank.PlusMinus(myList);
+
+List<int> anotherList = [4, 73, 67, 38, 33];
+var res = HackerRank.gradingStudents(anotherList);
+foreach (int a in res)
+{
+    Console.WriteLine(a);
+}
