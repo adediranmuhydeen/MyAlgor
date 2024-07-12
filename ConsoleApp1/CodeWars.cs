@@ -1,8 +1,7 @@
-﻿using System.Text;
-
+﻿
 namespace ConsoleApp1
 {
-    public class CodeWars
+    public static class CodeWars
     {
         //You are given an odd-length array of integers, in which all of them are the same, except for one single number.
         //Complete the method which accepts such an array, and returns that single different number.
@@ -27,6 +26,32 @@ namespace ConsoleApp1
             var res = string.Empty;
            
           return res;
+        }
+
+        public static List<int> BubbleSort(List<int> numbers)
+        {
+            return default;
+        }
+
+
+        /// <summary>
+        /// Narcissistic number is any positive number whose sum of its own digit each raised to the power of digits in a given base is equal o that same number.
+        /// Example:
+        ///     Take 153(3 digits), which is a narcissistic number
+        ///     1^3 + 5^3 + 3^3 = 153
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static bool Narcissistic(int value)
+        {
+            string myStr = value.ToString();
+            int bas = myStr.Length;
+            int res = 0;
+            foreach(char c in myStr) 
+            {
+                res += (int)Math.Pow((int)c-48, bas);
+            }
+            return res == value;
         }
     }
 }
