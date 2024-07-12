@@ -112,19 +112,15 @@ namespace ConsoleApp1
         /// <param name="secondIndex"></param>
         /// <returns></returns>
 
-        public static string GenerateCode(string name, List<string> _service, int charLength, int firstIndex=2, int secondIndex=3)
+        public static string GenerateCode( List<string> _service, int length)
         {
-            int startIndex = 4;
-            if (charLength > 2)
-            {
-                startIndex = startIndex + (charLength - 2);
-            }
-            int num = int.Parse(_service[_service.Count - 1].Substring(startIndex, 4));
+            int intLength = length-2;
+            
+            int num = int.Parse(_service[_service.Count - 1].Substring(2, intLength));
             string myString = _service[_service.Count - 1];
-            char firstChar = myString[firstIndex + (charLength - 2)];
-            char secondChar = myString[secondIndex + (charLength - 2)];
-            char thirdChar = myString[myString.Length - 1];
-            if (num + 1 > 9999)
+            char firstChar = myString[0];
+            char secondChar = myString[1];
+            if (num + 1 > 99999)
             {
                 secondChar = (char)(secondChar + 1);
                 num = 0;
@@ -135,12 +131,12 @@ namespace ConsoleApp1
 
                     if (firstChar > 'Z')
                     {
-                        firstChar = (char)(firstChar - 26);
-                        thirdChar = (char)(thirdChar + 1);
+                        firstChar = (char)(firstChar - 26);                        
                     }
                 }
             }
-            return (name.Substring(0, charLength).ToUpper() + firstChar + secondChar + (num + 1).ToString("D4") + thirdChar);
+            var temp = (num + 1).ToString($"D{length-2}");
+            return (firstChar.ToString() + secondChar.ToString() + temp );
         }
 
         public static string GenerateCodeID(string name, List<string> _service, int integerLenth,  int charLength = 4, int startIndex = 4)
