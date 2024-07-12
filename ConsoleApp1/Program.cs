@@ -56,5 +56,7 @@ using System.Text.RegularExpressions;
 
 Console.WriteLine(CodeWars.Narcissistic(153));
 
+Console.WriteLine(CodeWars.ToCamelCase("the-Man-is-a-Good-man"));
+
 
 

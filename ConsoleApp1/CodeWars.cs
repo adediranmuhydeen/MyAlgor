@@ -1,4 +1,6 @@
 ﻿
+using System.Text;
+
 namespace ConsoleApp1
 {
     public static class CodeWars
@@ -52,6 +54,46 @@ namespace ConsoleApp1
                 res += (int)Math.Pow((int)c-48, bas);
             }
             return res == value;
+        }
+
+        /// <summary>
+        /// Convert dash separated string to camel case
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static string ToCamelCase(string str)
+        {
+            string[] temp = str.Split('-');
+            StringBuilder sb = new StringBuilder();
+            foreach(string s in temp)
+            {
+                if(s == temp[0])
+                    sb.Append(s);
+                else sb.Append(Capitalize(s));
+            }
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// capitalize string
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        private static string Capitalize(string str)
+        {
+            string res = "";
+            foreach (char c in str)
+            {
+                if (c == str[0])
+                {
+                    res += c.ToString().ToUpper();
+                }
+                else
+                {
+                    res += c;
+                }
+            }
+            return res;
         }
     }
 }
