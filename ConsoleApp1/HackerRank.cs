@@ -104,5 +104,34 @@ namespace ConsoleApp1
             return result;
         }
 
-    }
+
+		/// <summary>
+		/// Given an integer n and another integer k, repeat n in mutiple of k, and add all elements of the result together untill you get a single digit
+		/// </summary>
+		/// <param name="n"></param>
+		/// <param name="k"></param>
+		/// <returns></returns>
+		public static int SumOfMultiple(int n, int k)
+		{
+			int result = 0;
+			StringBuilder sb = new();
+			for (int i = 0; i < k; i++)
+			{
+				sb.Append(n);
+			}
+
+			while (sb.Length > 1)
+			{
+				result = 0;
+				foreach (char c in sb.ToString().ToCharArray())
+				{
+					result += int.Parse(c.ToString());
+				}
+				sb.Clear();
+				sb.Append(result);
+			}
+			return result;
+
+		}
+	}
 }
