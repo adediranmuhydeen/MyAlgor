@@ -61,7 +61,7 @@ Console.WriteLine(CodeWars.ToCamelCase("the-Man-is-a-Good-man"));
 char[] name = "muhydeen".ToCharArray();
 name[0] = Char.ToUpper(name[0]);
 
-Console.WriteLine("");
+Console.WriteLine(1%2);
 
 
 

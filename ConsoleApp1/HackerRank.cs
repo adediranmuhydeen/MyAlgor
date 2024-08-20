@@ -133,5 +133,60 @@ namespace ConsoleApp1
 			return result;
 
 		}
+		/// <summary>
+		/// A Discrete Mathematics professor has a class of students. Frustrated with their lack of discipline, the professor decides to cancel class if fewer than 
+        /// some number of students are present when class starts. Arrival times go from on time (arrivalTime<=0) to arrived late (arrivalTime>0).
+        /// Given the arrival time of each student and a threshhold number of attendees, determine if the class is cancelled.
+		/// </summary>
+		/// <param name="k"></param>
+		/// <param name="a"></param>
+		/// <returns></returns>
+
+		public static string angryProfessor(int k, List<int> a)
+		{
+			int result = 0;
+			foreach (int b in a)
+			{
+				if (b <= 0)
+				{
+					result++;
+				}
+			}
+			if (result < k) { return "YES"; } else { return "NO"; }
+		}
+
+
+		/// <summary>
+		/// Lily likes to play games with integers. She has created a new game where she determines the difference between a number and its reverse. 
+		/// For instance, given the number 12 , its reverse is 21. Their difference is 9. The number 120 reversed is 12, and their difference is 99.
+		/// She decides to apply her game to decision making.She will look at a numbered range of days and will only go to a movie on a beautiful day.
+		/// Function Description:	Complete the beautifulDays function in the editor below.
+        /// beautifulDays has the following parameter(s) :
+        /// int i: the starting day number
+        /// int j: the ending day number
+        /// int k: the divisor
+		/// </summary>
+		/// <param name="i"></param>
+		/// <param name="j"></param>
+		/// <param name="k"></param>
+		/// <returns></returns>
+		public static int beautifulDays(int i, int j, int k)
+		{
+			int count = 0;
+			while (i <= j)
+			{
+				var reverse = i.ToString().ToCharArray();
+				Array.Reverse(reverse);
+				int reverseI = int.Parse(reverse);
+				if ((i - reverseI) % k == 0)
+				{
+					count++;
+				}
+				i++;
+			}
+			return count;
+		}
+
 	}
 }
+
