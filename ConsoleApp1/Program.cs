@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more informat
 
 using ConsoleApp1;
+using System.Text;
 using System.Text.RegularExpressions;
 
 
@@ -19,7 +20,7 @@ using System.Text.RegularExpressions;
 
 //Console.WriteLine("---------Length of longest substring---------");
 
-//Console.WriteLine(LeetCode.LengthOfLongestSubstring("aabbbbbuuuuuutrtfgdggd"));
+Console.WriteLine(LeetCode.LengthOfLongestSubstring("bbbbbbb"));
 
 //List<List<int>> list = [[11, 2, 4,], [4, 5, 6], [10, 8, -12]];
 
@@ -54,14 +55,17 @@ using System.Text.RegularExpressions;
 
 //Console.WriteLine(Regex.IsMatch("Muhydeenmuhydeenmuhydeenmuhyde", nameValidator));
 
-Console.WriteLine(CodeWars.Narcissistic(153));
+//Console.WriteLine(CodeWars.Narcissistic(153));
 
-Console.WriteLine(CodeWars.ToCamelCase("the-Man-is-a-Good-man"));
+//Console.WriteLine(CodeWars.ToCamelCase("the-Man-is-a-Good-man"));
 
-char[] name = "muhydeen".ToCharArray();
-name[0] = Char.ToUpper(name[0]);
+//char[] name = "muhydeen".ToCharArray();
+//name[0] = Char.ToUpper(name[0]);
 
-Console.WriteLine(1%2);
+//Console.WriteLine(HackerRank.SaveThePrisoner(4,6,2));
+
+//string name = "Muhydee";
+//Console.WriteLine(name.Substring(1,4));
 
 
 

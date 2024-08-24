@@ -187,6 +187,26 @@ namespace ConsoleApp1
 			return count;
 		}
 
+
+		public static int SaveThePrisoner(int n, int m, int s)
+		{
+			int result = 0;			
+			while (m > 0)
+			{				
+				if (s > n)
+				{
+					s = 1;
+				}
+				if (m == 1)
+				{
+					result = s;
+				}
+				s++;
+				m--;
+			}
+			return result;
+		}
+
 	}
 }
 

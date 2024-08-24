@@ -181,33 +181,58 @@ namespace ConsoleApp1
             return res;
         }
 
-        /// <summary>
-        /// Given a string s, find the length of the longest substring without repeating characters.
-        /// </summary>
-        /// <param name="s"></param>
-        /// <returns></returns>
-        public static int LengthOfLongestSubstring(string s)
-        {
-            var result = 0;
-            var output = 1;
-            if (s.ToCharArray().Distinct().ToList().Count == s.Length)
-            {
-                return s.Length;
-            }
-            for (int i = 0; i < s.Length; i++)
-            {
-                var e = 1;
-                while (e+i <= s.Length)
-                {
-                    if (s.Substring(i, e).ToCharArray().Distinct().ToList().Count == s.Substring(i, e).Length)
-                    {
-                        result = s.Substring(i, e).Length > result ? s.Substring(i, e).Length : result;
-                        output = output>result ? output : result;
-                    }
-                    e++;
-                }
-            }
-            return output;
-        }
-    }
+		/// <summary>
+		/// Given a string s, find the length of the longest substring without repeating characters.
+		/// </summary>
+		/// <param name="s"></param>
+		/// <returns></returns>
+		//public static int LengthOfLongestSubstring(string s)
+		//{
+		//    var result = 0;
+		//    var output = 1;
+		//    if (s.ToCharArray().Distinct().ToList().Count == s.Length)
+		//    {
+		//        return s.Length;
+		//    }
+		//    for (int i = 0; i < s.Length; i++)
+		//    {
+		//        var e = 1;
+		//        while (e+i <= s.Length)
+		//        {
+		//            if (s.Substring(i, e).ToCharArray().Distinct().ToList().Count == s.Substring(i, e).Length)
+		//            {
+		//                result = s.Substring(i, e).Length > result ? s.Substring(i, e).Length : result;
+		//                output = output>result ? output : result;
+		//            }
+		//            e++;
+		//        }
+		//    }
+		//    return output;
+		//}
+		public static int LengthOfLongestSubstring(string s)
+		{
+			string holder = string.Empty;
+			string result = "";
+			int checker = 0;
+			for (int i = 0; i < s.Length; i++)
+			{
+				checker += i;
+				while (checker < s.Length)
+				{
+					if (s[i] == s[checker]  && )
+					{
+						holder = s.Substring(i, (checker - i));
+						if (holder.Length > result.Length)
+						{
+							result = holder;
+                            holder = string.Empty;
+						}
+					}
+					checker++;
+				}
+				checker = 0;
+			}
+			return result.Length;
+		}
+	}
 }
