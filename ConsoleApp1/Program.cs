@@ -20,7 +20,7 @@ using System.Text.RegularExpressions;
 
 //Console.WriteLine("---------Length of longest substring---------");
 
-Console.WriteLine(LeetCode.LengthOfLongestSubstring("bbbbbbb"));
+//Console.WriteLine(LeetCode.LengthOfLongestSubstring("bbbbbbb"));
 
 //List<List<int>> list = [[11, 2, 4,], [4, 5, 6], [10, 8, -12]];
 
@@ -64,8 +64,12 @@ Console.WriteLine(LeetCode.LengthOfLongestSubstring("bbbbbbb"));
 
 //Console.WriteLine(HackerRank.SaveThePrisoner(4,6,2));
 
-//string name = "Muhydee";
+string name = "Muhydee";
 //Console.WriteLine(name.Substring(1,4));
+
+var list = name.ToCharArray().Distinct().ToList();
+Console.WriteLine(string.Join(',', list));
+
 
 
 

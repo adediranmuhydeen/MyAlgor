@@ -209,30 +209,30 @@ namespace ConsoleApp1
 		//    }
 		//    return output;
 		//}
-		public static int LengthOfLongestSubstring(string s)
-		{
-			string holder = string.Empty;
-			string result = "";
-			int checker = 0;
-			for (int i = 0; i < s.Length; i++)
-			{
-				checker += i;
-				while (checker < s.Length)
-				{
-					if (s[i] == s[checker]  && )
-					{
-						holder = s.Substring(i, (checker - i));
-						if (holder.Length > result.Length)
-						{
-							result = holder;
-                            holder = string.Empty;
-						}
-					}
-					checker++;
-				}
-				checker = 0;
-			}
-			return result.Length;
-		}
+		//public static int LengthOfLongestSubstring(string s)
+		//{
+		//	string holder = string.Empty;
+		//	string result = "";
+		//	int checker = 0;
+		//	for (int i = 0; i < s.Length; i++)
+		//	{
+		//		checker += i;
+		//		while (checker < s.Length)
+		//		{
+		//			if (s[i] == s[checker]  && )
+		//			{
+		//				holder = s.Substring(i, (checker - i));
+		//				if (holder.Length > result.Length)
+		//				{
+		//					result = holder;
+  //                          holder = string.Empty;
+		//				}
+		//			}
+		//			checker++;
+		//		}
+		//		checker = 0;
+		//	}
+		//	return result.Length;
+		//}
 	}
 }

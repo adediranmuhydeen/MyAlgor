@@ -95,5 +95,47 @@ namespace ConsoleApp1
             }
             return res;
         }
-    }
+
+		/// <summary>
+		/// Count character in string: The main idea is to count all the occurring characters in a string. If you have a string like aba,
+		/// then the result should be {'a': 2, 'b': 1}. What if the string is empty? Then the result should be empty object literal, {}.
+		/// </summary>
+		/// <param name="str"></param>
+		/// <returns></returns>
+		public static Dictionary<char, int> CountChar(string str)
+		{
+			var result = new Dictionary<char, int>();
+			var strList = str.ToCharArray().Distinct().ToList();
+			var myStrList = str.ToCharArray().ToList();
+			for (int i = 0; i < strList.Count; i++)
+			{
+				int val = 0;
+				foreach (char c in myStrList)
+				{
+					if (strList[i] == c)
+					{
+						val++;
+					}
+				}
+				result.Add(strList[i], val);
+			}
+			return result;
+		}
+
+		public static Dictionary<char, int> Count(string str)
+		{
+			return str.GroupBy(c => c).ToDictionary(g => g.Key, g => g.Count());
+		}
+		/// <summary>
+		/// Return the number (count) of vowels in the given string.We will consider a, e, i, o, u as vowels for this Kata(but not y).
+        /// The input string will only consist of lower case letters and/or spaces.
+		/// </summary>
+		/// <param name="str"></param>
+		/// <returns></returns>
+		public static int GetVowelCount(string str)
+		{
+			var vowels = new List<char> { 'a', 'e', 'i', 'o', 'u' };
+			return str.ToCharArray().Where(x => vowels.Contains(x)).Count();
+		}
+	}
 }
